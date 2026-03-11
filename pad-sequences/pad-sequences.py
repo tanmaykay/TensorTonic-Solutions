@@ -14,7 +14,7 @@ def pad_sequences(seqs, pad_value=0, max_len=None):
     else:
         L=max_len
     res=np.full((N,L),pad_value)
-    for seq,padded_seq in zip(seqs,res):
+    for i,seq in enumerate(seqs):
         trunc=seq[:L]
-        padded_seq[:len(trunc)]=trunc
+        res[i,:len(trunc)]=trunc
     return res
